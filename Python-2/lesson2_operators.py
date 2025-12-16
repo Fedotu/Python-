@@ -1,13 +1,14 @@
-#user_login = "adam"
-#user_pass = "Qwerty123456"
+user_login = "adam"
+user_pass = "Qwerty123456"
 
-#login = input("Login: ")
-#password = input("Password: ")
+login = input("Login: ")
+password = input("Password: ")
 
-#if (login == user_login) and (password == user_pass):
-#    print("Secret is open")
-#else:
-#    print("Locked")
+if (login == user_login) and (password == user_pass):
+    print("Secret is open")
+
+else:
+    print("Locked")
 
 crit1 = "red"
 crit2 = "lock"
