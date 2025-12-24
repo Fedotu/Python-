@@ -6,4 +6,5 @@ class Student:
         self.course = course
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}, {self.age} лет, курс: {self.course}"
+        return (f"{self.first_name} {self.last_name}, "
+                f"{self.age} лет, курс: {self.course}")

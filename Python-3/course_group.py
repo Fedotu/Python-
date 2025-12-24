@@ -1,4 +1,5 @@
-from student import Student
+from student import Student  # noqa: F401
+
 
 class CourseGroup:
     def __init__(self, student, classmates):
@@ -6,5 +7,7 @@ class CourseGroup:
         self.classmates = classmates
 
     def __str__(self):
-        classmates_str = ", ".join([str(classmate) for classmate in self.classmates])
+        classmates_str = ", ".join(
+            [str(classmate) for classmate in self.classmates]
+            )
         return f"{self.student} учится вместе с: {classmates_str}"
