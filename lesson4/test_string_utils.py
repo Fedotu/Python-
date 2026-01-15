@@ -5,6 +5,7 @@ from string_utils import StringUtils
 
 string_utils = StringUtils()
 
+
 # тесты для capitalize
 
 
@@ -72,6 +73,7 @@ def test_trim_negative_wrong_type(input_str):
     """Тесты на дефекты - ожидаем падение"""
     string_utils.trim(input_str)
 
+
 # тесты для contains
 
 
@@ -94,6 +96,7 @@ def test_contains_positive(string, symbol, expected):
 @pytest.mark.parametrize("string, symbol, expected", [
     ("SkyPro", "U", False),
     ("", "a", False),
+    ("a", " ", False),
     ("Hello", "hello", False),
     ("test", "z", False),
 ])
@@ -124,7 +127,7 @@ def test_contains_negative_wrong_type(string, symbol):
     ("Hello World", " ", "HelloWorld"),
     ("aaa", "a", ""),
     ("ababab", "ab", ""),
-    ("тест", "е", "тст"),
+    ("test", "e", "tst"),
     ("12345", "3", "1245"),
     ("", "a", ""),
     ("test", "", "test")
