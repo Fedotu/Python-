@@ -50,6 +50,3 @@ def test_01_form():
     finally:
         driver.quit()
 
-
-if __name__ == "__main__":
-    pytest.main([__file__])
