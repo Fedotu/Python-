@@ -36,6 +36,3 @@ def test_02_calc():
     finally:
         driver.quit()
 
-
-if __name__ == "__main__":
-    pytest.main([__file__])
