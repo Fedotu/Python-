@@ -19,7 +19,6 @@ def test_01_form():
 
         waiter = WebDriverWait(driver, 10)
 
-        # Заполнение полей
         driver.find_element(By.NAME, "first-name").send_keys("Иван")
         driver.find_element(By.NAME, "last-name").send_keys("Петров")
         driver.find_element(By.NAME, "address").send_keys("Ленина, 55-3")
@@ -31,18 +30,14 @@ def test_01_form():
         driver.find_element(By.NAME, "job-position").send_keys("QA")
         driver.find_element(By.NAME, "company").send_keys("SkyPro")
 
-        # Нажимаем Submit
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
-        # Ждем появления результатов
         waiter.until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".alert.py-2")))
 
-        # Проверяем zip-code (должен быть красный)
         zip_code_div = driver.find_element(By.ID, "zip-code")
         assert "alert-danger" in zip_code_div.get_attribute("class")
 
-        # Проверяем остальные поля (должны быть зеленые)
         fields_to_check = [
             "first-name", "last-name", "address", "e-mail", "phone",
             "city", "country", "job-position", "company"
