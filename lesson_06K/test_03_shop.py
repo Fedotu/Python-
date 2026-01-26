@@ -44,6 +44,3 @@ def test_03_shop():
     finally:
         driver.quit()
 
-
-if __name__ == "__main__":
-    pytest.main([__file__])
