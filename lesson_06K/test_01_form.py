@@ -1,21 +1,17 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
 def test_01_form():
-    service = EdgeService(
-        executable_path=r"C:\Users\user\Downloads\msedgedriver.exe")
-    driver = webdriver.Edge(service=service)
+    driver = webdriver.Edge()
 
     try:
         driver.maximize_window()
-        driver.get(
-            "https://bonigarcia.dev/selenium-webdriver-java/data-types.html"
-            )
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/"
+                   "data-types.html")
 
         waiter = WebDriverWait(driver, 10)
 
@@ -50,3 +46,6 @@ def test_01_form():
     finally:
         driver.quit()
 
+
+if __name__ == "__main__":
+    pytest.main([__file__])
