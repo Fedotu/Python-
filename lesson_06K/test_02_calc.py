@@ -12,7 +12,8 @@ def test_02_calc():
         service=ChromeService(ChromeDriverManager().install()))
 
     try:
-        url = "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html"  # noqa
+        url = "https://bonigarcia.dev/selenium-webdriver-java/"
+        "slow-calculator.html"
         driver.get(url)
 
         waiter = WebDriverWait(driver, 50)
