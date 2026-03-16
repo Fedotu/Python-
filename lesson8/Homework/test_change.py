@@ -1,4 +1,4 @@
-from test_yougile import YougileApi, LOGIN, PASSWORD, COMPANY_ID, \
+from YougileApi import YougileApi, LOGIN, PASSWORD, COMPANY_ID, \
     USER_ID, PROJECT_ID, WRONG_PROJECT_ID
 
 
@@ -14,15 +14,8 @@ def test_get_token():
 
 # получения пользователей
 def test_get_users():
-    # Получаем токен
     api = YougileApi()
-    token_resp = api.get_token(LOGIN, PASSWORD, COMPANY_ID)
-    token = token_resp.json()["key"]
-
-    api = YougileApi(token)
     resp = api.get_users()
-    print("Статус:", resp.status_code)
-    print("Список пользователей:", resp.text)
 
     assert resp.status_code == 200
 
@@ -36,7 +29,7 @@ def test_update_project():
     assert token
 
     # Обновляем проект
-    api = YougileApi(token)
+    api = YougileApi()
     project_data = {
         "deleted": False,
         "title": "ГосУслуги",

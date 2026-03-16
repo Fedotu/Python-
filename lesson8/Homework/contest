@@ -1,0 +1,11 @@
+import pytest
+from YougileApi import YougileApi, LOGIN, PASSWORD, COMPANY_ID
+
+
+@pytest.fixture
+def auth_api():
+    api = YougileApi()
+    token_resp = api.get_token(LOGIN, PASSWORD, COMPANY_ID)
+    token = token_resp.json()["key"]
+    yield YougileApi(token)
+    api.delete_token(token)

@@ -1,4 +1,4 @@
-from test_yougile import YougileApi, LOGIN, PASSWORD, COMPANY_ID, \
+from YougileApi import YougileApi, LOGIN, PASSWORD, COMPANY_ID, \
     PROJECT_ID, WRONG_PROJECT_ID
 
 
