@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import allure
 
 
@@ -17,4 +18,7 @@ class CheckoutPage:
 
     @allure.step("Нажать кнопку 'continue'")
     def continue_cl(self) -> None:
-        self._driver.find_element(By.ID, "continue").click()
+        continue_btn = self._waiter.until(
+            EC.element_to_be_clickable((By.ID, "continue"))
+        )
+        continue_btn.click()

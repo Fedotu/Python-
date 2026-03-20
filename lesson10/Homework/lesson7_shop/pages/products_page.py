@@ -1,10 +1,13 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import allure
 
 
 class ProductsPage:
     def __init__(self, driver) -> None:
         self._driver = driver
+        self._waiter = WebDriverWait(self._driver, 10)
 
     @allure.step("Выбрать все товары слева")
     def add_to_cart(self, product_name: str) -> None:
@@ -16,8 +19,10 @@ class ProductsPage:
         }
 
         if product_name in product_map:
-            self._driver.find_element(
-                By.NAME, product_map[product_name]).click()
+            element = self._waiter.until(
+                EC.element_to_be_clickable(
+                    (By.NAME, product_map[product_name])))
+            element.click()
         else:
             # шаг, если произойдет ошибка
             with allure.step(f"Ошибка: товар '{product_name}' не найден"):
@@ -25,4 +30,6 @@ class ProductsPage:
 
     @allure.step("Нажать на иконку корзины")
     def go_to_cart(self) -> None:
-        self._driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+        cart_icon = self._waiter.until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "shopping_cart_link")))
+        cart_icon.click()
