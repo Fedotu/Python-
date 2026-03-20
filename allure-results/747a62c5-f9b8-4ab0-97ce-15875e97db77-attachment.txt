@@ -1,1 +1,0 @@
-DELETE FROM company WHERE id = :id_to_delete
