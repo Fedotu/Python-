@@ -5,6 +5,8 @@ import allure
 
 
 class CartPage:
+    CHECKOUT_BUTTON = (By.ID, "checkout")  # переменная для упращения кода
+
     def __init__(self, driver) -> None:
         self._driver = driver
         self._waiter = WebDriverWait(self._driver, 10)
@@ -12,6 +14,6 @@ class CartPage:
     @allure.step("Нажать кнопку 'checkout'")
     def checkout(self) -> None:
         checkout_btn = self._waiter.until(
-            EC.element_to_be_clickable((By.ID, "checkout"))
+            EC.element_to_be_clickable(self.CHECKOUT_BUTTON)
         )
         checkout_btn.click()

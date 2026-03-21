@@ -47,9 +47,6 @@ def test_calculator_flow(driver, num1, operation,
     with allure.step("Открытие страницы калькулятора"):
         main_page.open()
 
-    with allure.step(f"Установка задержки {delay} секунд"):
-        main_page.set_delay(delay)
-
     with allure.step(f"Нажатие кнопок: {num1}, {operation}, {num2}, '='"):
         main_page.click_buttons([num1, operation, num2, "="])
 
